@@ -134,24 +134,25 @@ export function Drawer({ open, onClose }: DrawerProps) {
               ))}
             </ul>
           </nav>
+        </div>
 
+        <div className="drawer-contact">
           <div
             style={{
               height: "1px",
               width: "100%",
               backgroundColor: "rgba(26,26,26,0.15)",
-              marginTop: "40px",
               marginBottom: "32px",
             }}
           />
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
             <span
               className="font-display"
               style={{
-                fontSize: "18px",
+                fontSize: "20px",
                 color: "rgba(26,26,26,0.6)",
-                marginBottom: "16px",
+                marginBottom: "20px",
               }}
             >
               fala comigo
@@ -163,7 +164,7 @@ export function Drawer({ open, onClose }: DrawerProps) {
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 500,
-                fontSize: "16px",
+                fontSize: "17px",
                 color: "#1A1A1A",
                 textDecoration: "none",
                 transition: "color 200ms ease",
@@ -184,31 +185,6 @@ export function Drawer({ open, onClose }: DrawerProps) {
             >
               contato@pmendoncafoto.com.br
             </span>
-
-            <a
-              href="#contato"
-              onClick={handleLinkClick}
-              style={{
-                marginTop: "32px",
-                display: "block",
-                width: "100%",
-                textAlign: "center",
-                backgroundColor: "#1A1A1A",
-                color: "#FAF7F2",
-                padding: "18px",
-                borderRadius: "2px",
-                fontFamily: "Poppins, sans-serif",
-                fontWeight: 500,
-                fontSize: "15px",
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                transition: "background-color 250ms ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#C8956D")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1A1A1A")}
-            >
-              Vamos marcar?
-            </a>
           </div>
         </div>
       </aside>

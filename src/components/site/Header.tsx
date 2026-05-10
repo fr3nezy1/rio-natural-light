@@ -50,21 +50,27 @@ export function Header() {
             style={{
               background: "none",
               border: "none",
-              padding: "8px",
+              padding: "10px",
               cursor: "pointer",
-              color: "#1A1A1A",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-end",
-              gap: "6px",
-              transition: "color 250ms ease",
+              gap: "5px",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#C8956D")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#1A1A1A")}
+            onMouseEnter={(e) => {
+              e.currentTarget.querySelectorAll<HTMLDivElement>("div").forEach((d) => {
+                d.style.backgroundColor = "#C8956D";
+              });
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.querySelectorAll<HTMLDivElement>("div").forEach((d) => {
+                d.style.backgroundColor = "#1A1A1A";
+              });
+            }}
           >
-            <span style={{ ...lineStyle, width: "24px" }} />
-            <span style={{ ...lineStyle, width: "18px" }} />
-            <span style={{ ...lineStyle, width: "24px" }} />
+            <div style={{ ...lineStyle, width: "20px" }} />
+            <div style={{ ...lineStyle, width: "14px" }} />
+            <div style={{ ...lineStyle, width: "20px" }} />
           </button>
         </div>
 

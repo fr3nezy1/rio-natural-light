@@ -14,7 +14,7 @@ export function Header() {
 
   const lineStyle: React.CSSProperties = {
     height: "1px",
-    backgroundColor: "currentColor",
+    backgroundColor: "#1A1A1A",
     display: "block",
     transition: "background-color 250ms ease",
   };

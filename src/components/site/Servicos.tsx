@@ -146,6 +146,7 @@ export function Servicos() {
             {services.map((service) => (
               <div
                 key={service.id}
+                className="servico-card"
                 onClick={() => openServiceModal(service.id as ServiceType)}
                 style={{
                   cursor: "pointer",
@@ -153,25 +154,35 @@ export function Servicos() {
                   border: "none",
                 }}
               >
-                <img
-                  src={service.image}
-                  alt={service.alt}
-                  loading="lazy"
+                <div
                   style={{
+                    position: "relative",
                     aspectRatio: "4 / 5",
-                    width: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                    transition: "opacity 250ms ease",
-                    opacity: 1,
+                    overflow: "hidden",
                   }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLImageElement).style.opacity = "0.85";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLImageElement).style.opacity = "1";
-                  }}
-                />
+                >
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                  <div
+                    className="card-overlay"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      backgroundColor: "rgba(0,0,0,0.4)",
+                      transition: "opacity 300ms ease",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
                 <p
                   style={{
                     fontFamily: "Poppins, sans-serif",
@@ -272,6 +283,21 @@ export function Servicos() {
             section#servicos > div > div:nth-child(2) {
               grid-template-columns: repeat(3, 1fr) !important;
               gap: 32px !important;
+            }
+          }
+
+          @media (max-width: 1023px) {
+            .card-overlay {
+              opacity: 0;
+            }
+          }
+
+          @media (min-width: 1024px) {
+            .card-overlay {
+              opacity: 1;
+            }
+            .servico-card:hover .card-overlay {
+              opacity: 0;
             }
           }
         `}</style>

@@ -9,10 +9,11 @@ export function Visao() {
       style={{ height: "75vh" }}
     >
       <img
-        src="https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?w=2400&q=85"
-        alt=""
+        src="https://res.cloudinary.com/dsf09jmai/image/upload/q_auto/f_auto/v1778463961/Mureta-2_vx5c6y.jpg"
+        alt="Cristo Redentor"
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: "center bottom" }}
       />
       <div
         className="absolute inset-0"
@@ -38,14 +39,18 @@ export function Visao() {
             fontSize: "32px",
             lineHeight: 1.3,
             textAlign: "center",
-            maxWidth: "1100px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            maxWidth: "1600px",
+            width: "100%",
+            textTransform: "uppercase",
           }}
         >
-          <div className="visao-line">a vida não combina com roteiro.</div>
-          <div className="visao-line" style={{ marginTop: "24px" }}>
+          <div className="visao-line" style={{ textAlign: "center" }}>a vida não combina com roteiro.</div>
+          <div className="visao-line" style={{ marginTop: "24px", textAlign: "center" }}>
             a luz natural diz mais que qualquer cenário montado.
           </div>
-          <div className="visao-line" style={{ marginTop: "24px" }}>
+          <div className="visao-line" style={{ marginTop: "24px", textAlign: "center" }}>
             o rio não é fundo. é co-autor.
           </div>
         </div>

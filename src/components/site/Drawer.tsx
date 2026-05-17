@@ -192,17 +192,17 @@ export function Drawer({ open, onClose }: DrawerProps) {
       <style>{`
         .drawer-panel {
           width: 85vw;
-          max-width: 380px;
-          padding: 40px 28px;
+          max-width: 320px;
+          padding: 32px 24px;
         }
-        .drawer-link { font-size: 32px; }
+        .drawer-link { font-size: 26px; }
         @media (min-width: 768px) {
           .drawer-panel {
-            width: 420px;
-            max-width: 420px;
-            padding: 48px 40px;
+            width: 340px;
+            max-width: 340px;
+            padding: 40px 32px;
           }
-          .drawer-link { font-size: 36px; }
+          .drawer-link { font-size: 32px; }
         }
       `}</style>
     </>

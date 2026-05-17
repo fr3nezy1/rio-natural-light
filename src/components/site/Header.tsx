@@ -32,11 +32,11 @@ export function Header() {
       >
         <div
           className="flex items-center justify-between header-inner"
-          style={{ padding: "16px 24px" }}
+          style={{ padding: "10px 24px" }}
         >
           <a
             href="#top"
-            className="font-display header-brand"
+            className="font-display-lower header-brand"
             style={{ color: "#1A1A1A", fontSize: "18px", lineHeight: 1, textDecoration: "none" }}
           >
             pedro mendonça
@@ -76,7 +76,7 @@ export function Header() {
 
         <style>{`
           @media (min-width: 768px) {
-            .header-inner { padding: 20px 40px !important; }
+            .header-inner { padding: 14px 40px !important; }
             .header-brand { font-size: 22px !important; }
           }
         `}</style>

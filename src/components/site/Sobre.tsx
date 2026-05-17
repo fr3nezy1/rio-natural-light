@@ -15,7 +15,7 @@ export function Sobre() {
       >
         <div className="sobre-image-wrap">
           <img
-            src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1200&q=80"
+            src="https://res.cloudinary.com/dsf09jmai/image/upload/q_auto/f_auto/v1778463051/Eu-6_pfkd7g.jpg"
             alt="Pedro Mendonça"
             loading="lazy"
             style={{
@@ -66,10 +66,10 @@ export function Sobre() {
           .sobre-section { padding: 120px 0; }
           .sobre-grid {
             flex-direction: row;
-            align-items: flex-start;
+            align-items: center;
             gap: 80px;
           }
-          .sobre-image-wrap { flex: 0 0 42%; }
+          .sobre-image-wrap { flex: 0 0 45%; }
           .sobre-text { flex: 0 0 50%; }
           .sobre-h2 { font-size: 56px !important; }
           .sobre-paragraphs p { font-size: 18px; }

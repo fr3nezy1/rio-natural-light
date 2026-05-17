@@ -25,6 +25,11 @@ body {
 .font-display {
   font-family: "Anton", sans-serif;
   font-weight: 400;
+  text-transform: uppercase;
+}
+.font-display-lower {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
   text-transform: lowercase;
 }
 

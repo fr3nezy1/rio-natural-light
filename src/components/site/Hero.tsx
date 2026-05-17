@@ -6,9 +6,10 @@ export function Hero() {
       style={{ height: "100vh" }}
     >
       <img
-        src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=2400&q=80"
-        alt="Rio de Janeiro"
+        src="https://res.cloudinary.com/dsf09jmai/image/upload/q_auto/f_auto/v1778462709/P10-2_b8z7sg.jpg"
+        alt="Meninos na praia"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: "center bottom" }}
       />
       <div
         className="absolute inset-0"
@@ -38,13 +39,13 @@ export function Hero() {
             color: "rgba(250,247,242,0.9)",
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
-            fontSize: "16px",
+            fontSize: "14px",
             lineHeight: 1.75,
             marginTop: "24px",
-            maxWidth: "640px",
+            maxWidth: "300px",
           }}
         >
-          ensaios, casais e ativações de marca, em luz natural.
+          Ensaios, casais e ativações de marca, em luz natural
         </p>
         <a
           href="#contato"
@@ -80,18 +81,19 @@ export function Hero() {
         className="scroll-indicator absolute"
         style={{
           left: "50%",
-          bottom: "40px",
+          bottom: "24px",
           transform: "translateX(-50%)",
           width: "1px",
-          height: "40px",
-          backgroundColor: "rgba(250,247,242,0.6)",
+          height: "32px",
+          backgroundColor: "rgba(250,247,242,0.5)",
         }}
       />
 
       <style>{`
         @media (min-width: 768px) {
           .hero-h1 { font-size: 88px !important; }
-          .hero-sub { font-size: 18px !important; }
+          .hero-sub { font-size: 20px !important; }
+          .hero-sub { max-width: 640px !important; }
           section#top > div.absolute:not(:first-child):not(.scroll-indicator) {
           }
         }

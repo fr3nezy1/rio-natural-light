@@ -305,174 +305,199 @@ export function Servicos() {
 
       {openModal && currentService && (
         <div
-          onClick={handleBackdropClick}
           onKeyDown={handleKeyDown}
           style={{
             position: "fixed",
             inset: 0,
-            backgroundColor: "rgba(0,0,0,0.6)",
-            zIndex: 90,
+            zIndex: 100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             animation: "fadeIn 250ms ease",
           }}
+          tabIndex={-1}
         >
+          <div
+            onClick={handleBackdropClick}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(0,0,0,0.6)",
+            }}
+          />
+
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
+            className="modal-panel"
             style={{
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              backgroundColor: "#FAF7F2",
-              maxWidth: "900px",
-              width: "90vw",
-              maxHeight: "85vh",
-              overflowY: "auto",
-              zIndex: 100,
-              animation: "slideIn 300ms ease-out",
+              position: "relative",
+              width: "640px",
+              maxWidth: "90vw",
+              aspectRatio: "4 / 5",
+              maxHeight: "90vh",
+              overflow: "hidden",
+              borderRadius: "2px",
+              zIndex: 1,
               padding: 0,
+              backgroundColor: "transparent",
             }}
           >
+            <img
+              src={currentService.image}
+              alt=""
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundColor: "rgba(0,0,0,0.75)",
+              }}
+            />
             <button
               onClick={closeModal}
               autoFocus
+              aria-label="Fechar"
               style={{
                 position: "absolute",
                 top: "16px",
                 right: "20px",
                 background: "none",
                 border: "none",
+                color: "#FAF7F2",
                 fontSize: "28px",
                 cursor: "pointer",
-                color: "#1A1A1A",
-                transition: "color 200ms ease",
-                zIndex: 101,
+                zIndex: 2,
+                fontFamily: "Anton, sans-serif",
+                lineHeight: 1,
+                padding: 0,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#C8956D";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#1A1A1A";
+                e.currentTarget.style.color = "#FAF7F2";
               }}
             >
               ×
             </button>
 
-            <div style={{ display: "flex", height: "100%", flexDirection: "column" }}>
-              <img
-                src={currentService.image}
-                alt={currentService.alt}
+            <div
+              style={{
+                position: "relative",
+                zIndex: 1,
+                padding: "40px 32px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                minHeight: "100%",
+                color: "#FAF7F2",
+              }}
+            >
+              <span
                 style={{
-                  aspectRatio: "4 / 5",
-                  width: "100%",
-                  objectFit: "cover",
-                }}
-              />
-              <div
-                style={{
-                  padding: "32px 24px",
-                  overflow: "auto",
-                  flex: 1,
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  letterSpacing: "0.15em",
+                  color: "#C8956D",
+                  marginBottom: "14px",
+                  textTransform: "uppercase",
                 }}
               >
-                <p
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    letterSpacing: "0.15em",
-                    color: "#A67C52",
-                    marginBottom: "16px",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {currentService.tag}
-                </p>
-                <h3
-                  id="modal-title"
-                  className="font-display"
-                  style={{
-                    fontSize: "36px",
-                    color: "#1A1A1A",
-                    lineHeight: 1.1,
-                    margin: "0 0 32px 0",
-                  }}
-                >
-                  {currentService.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "17px",
-                    color: "#1A1A1A",
-                    lineHeight: 1.7,
-                    marginBottom: "32px",
-                  }}
-                >
-                  {currentService.fullDescription}
-                </p>
-
-                <div style={{ marginBottom: "32px" }}>
-                  <p
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontWeight: 500,
-                      fontSize: "12px",
-                      letterSpacing: "0.15em",
-                      color: "#A67C52",
-                      marginBottom: "16px",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    O que está incluso
-                  </p>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    {currentService.includes.map((item, idx) => (
-                      <p
-                        key={idx}
-                        style={{
-                          fontFamily: "Poppins, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "15px",
-                          color: "#1A1A1A",
-                          lineHeight: 1.7,
-                          margin: 0,
-                        }}
-                      >
-                        {item}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                <a
-                  href="#contato"
-                  onClick={closeModal}
-                  style={{
-                    display: "inline-block",
-                    backgroundColor: "#1A1A1A",
-                    color: "#FAF7F2",
-                    padding: "16px 32px",
-                    borderRadius: "2px",
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: 500,
-                    fontSize: "14px",
-                    letterSpacing: "0.05em",
-                    textDecoration: "none",
-                    transition: "background-color 250ms ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#C8956D";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#1A1A1A";
-                  }}
-                >
-                  Quero esse tipo de sessão
-                </a>
-              </div>
+                {currentService.tag}
+              </span>
+              <h3
+                id="modal-title"
+                className="font-display"
+                style={{
+                  fontSize: "38px",
+                  lineHeight: 1.1,
+                  color: "#FAF7F2",
+                  marginBottom: "20px",
+                }}
+              >
+                {currentService.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  lineHeight: 1.6,
+                  color: "#FAF7F2",
+                  maxWidth: "440px",
+                  marginBottom: "40px",
+                }}
+              >
+                {currentService.fullDescription}
+              </p>
+              <span
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  letterSpacing: "0.15em",
+                  color: "#FAF7F2",
+                  marginBottom: "12px",
+                }}
+              >
+                O QUE ESTÁ INCLUSO
+              </span>
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  marginBottom: "28px",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  lineHeight: 1.7,
+                  color: "#FAF7F2",
+                }}
+              >
+                {currentService.includes.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+              <a
+                href="#contato"
+                onClick={closeModal}
+                style={{
+                  display: "inline-block",
+                  background: "#FAF7F2",
+                  color: "#1A1A1A",
+                  padding: "14px 28px",
+                  borderRadius: "2px",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "14px",
+                  letterSpacing: "0.05em",
+                  textDecoration: "none",
+                  transition: "background 250ms ease, color 250ms ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#C8956D";
+                  e.currentTarget.style.color = "#FAF7F2";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#FAF7F2";
+                  e.currentTarget.style.color = "#1A1A1A";
+                }}
+              >
+                Quero esse tipo de sessão
+              </a>
             </div>
           </div>
 
@@ -481,32 +506,16 @@ export function Servicos() {
               from { opacity: 0; }
               to { opacity: 1; }
             }
-            @keyframes slideIn {
-              from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.95);
-              }
-              to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
+            @media (min-width: 768px) {
+              .modal-panel {
+                max-width: 640px !important;
               }
             }
-            @media (min-width: 768px) {
-              div[role="dialog"] {
-                display: flex;
-                flex-direction: row !important;
-              }
-              div[role="dialog"] > img {
-                width: 45% !important;
-                aspect-ratio: 4 / 5 !important;
-              }
-              div[role="dialog"] > div {
-                width: 55% !important;
-                padding: 48px !important;
-              }
-              div[role="dialog"] h3 {
-                font-size: 48px !important;
-              }
+
+            @media (max-width: 767px) {
+              .modal-panel h3 { font-size: 28px !important; }
+              .modal-panel p { font-size: 13px !important; }
+              .modal-panel ul { font-size: 12px !important; }
             }
           `}</style>
         </div>

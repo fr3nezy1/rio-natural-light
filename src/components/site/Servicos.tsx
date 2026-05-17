@@ -97,7 +97,7 @@ export function Servicos() {
         style={{
           backgroundColor: "#FAF7F2",
           paddingTop: "80px",
-          paddingBottom: "80px",
+          paddingBottom: "24px",
         }}
       >
         <div
@@ -266,10 +266,16 @@ export function Servicos() {
             transform: translateY(0);
           }
 
+          @media (min-width: 768px) {
+            section#servicos {
+              padding-bottom: 32px !important;
+            }
+          }
+
           @media (min-width: 1024px) {
             section#servicos {
               padding-top: 120px !important;
-              padding-bottom: 120px !important;
+              padding-bottom: 32px !important;
             }
             section#servicos h2 {
               font-size: 56px !important;

@@ -49,7 +49,7 @@ export function ComoFunciona() {
       className="fade-section"
       style={{
         backgroundColor: "#FAF7F2",
-        paddingTop: "80px",
+        paddingTop: "24px",
         paddingBottom: "80px",
       }}
     >
@@ -58,6 +58,7 @@ export function ComoFunciona() {
           maxWidth: "1200px",
           marginLeft: "auto",
           marginRight: "auto",
+          paddingTop: "24px",
           paddingLeft: "24px",
           paddingRight: "24px",
         }}
@@ -100,50 +101,12 @@ export function ComoFunciona() {
           </p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "48px",
-          }}
-        >
+        <div className="passos-grid">
           {steps.map((step, idx) => (
-            <div key={idx}>
-              <p
-                className="font-display"
-                style={{
-                  fontSize: "56px",
-                  color: "#C8956D",
-                  lineHeight: 1,
-                  letterSpacing: "-0.02em",
-                  margin: "0 0 16px 0",
-                }}
-              >
-                {step.number}
-              </p>
-              <h3
-                className="font-display"
-                style={{
-                  fontSize: "22px",
-                  color: "#1A1A1A",
-                  lineHeight: 1.2,
-                  margin: "0 0 12px 0",
-                }}
-              >
-                {step.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  color: "#1A1A1A",
-                  lineHeight: 1.65,
-                  margin: 0,
-                }}
-              >
-                {step.description}
-              </p>
+            <div key={idx} className="passo">
+              <span className="passo-numero font-display">{step.number}</span>
+              <h3 className="passo-titulo font-display">{step.title}</h3>
+              <p className="passo-descricao">{step.description}</p>
             </div>
           ))}
         </div>
@@ -161,6 +124,9 @@ export function ComoFunciona() {
         }
 
         @media (min-width: 768px) {
+          #como-funciona {
+            padding-top: 32px !important;
+          }
           #como-funciona > div {
             padding-top: 120px;
             padding-bottom: 120px;
@@ -176,18 +142,73 @@ export function ComoFunciona() {
           }
         }
 
-        @media (min-width: 768px) and (max-width: 1023px) {
-          #como-funciona > div > div:last-child {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
+        .passos-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .passo-numero {
+          display: block;
+          font-size: 52px;
+          color: #C8956D;
+          line-height: 0.9;
+          margin-bottom: 8px;
+          font-weight: 400;
+          letter-spacing: 0;
+        }
+
+        .passo-titulo {
+          font-size: 16px;
+          color: #1A1A1A;
+          margin: 0 0 8px 0;
+          letter-spacing: 0.02em;
+        }
+
+        .passo-descricao {
+          font-family: Poppins, sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          color: rgba(26, 26, 26, 0.85);
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        @media (min-width: 768px) {
+          .passos-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 48px 64px;
+          }
+
+          .passo-numero {
+            font-size: 64px;
+          }
+
+          .passo-titulo {
+            font-size: 18px;
+          }
+
+          .passo-descricao {
+            font-size: 15px;
           }
         }
 
-        @media (min-width: 1024px) {
-          #como-funciona > div > div:last-child {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 64px;
-            row-gap: 64px;
+        @media (max-width: 767px) {
+          .passos-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .passo-numero {
+            font-size: 52px;
+          }
+
+          .passo-titulo {
+            font-size: 16px;
+          }
+
+          .passo-descricao {
+            font-size: 14px;
           }
         }
       `}</style>

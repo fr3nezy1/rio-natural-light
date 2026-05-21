@@ -7,11 +7,7 @@ export function Sobre() {
     <section style={{ backgroundColor: "#FAF7F2" }} className="sobre-section">
       <div
         ref={ref}
-        className="fade-in mx-auto sobre-grid"
-        style={{
-          maxWidth: "1200px",
-          padding: "0 24px",
-        }}
+        className="fade-in sobre-grid cont-wide"
       >
         <div className="sobre-image-wrap">
           <img
@@ -31,8 +27,8 @@ export function Sobre() {
             className="font-display sobre-h2"
             style={{
               color: "#1A1A1A",
-              fontSize: "36px",
-              lineHeight: 1.1,
+              fontSize: "var(--t-2xl)",
+              lineHeight: 1.15,
             }}
           >
             a vida não espera. a foto não esquece.
@@ -52,18 +48,16 @@ export function Sobre() {
       </div>
 
       <style>{`
-        .sobre-section { padding: 80px 0; }
         .sobre-grid { display: flex; flex-direction: column; gap: 48px; }
         .sobre-paragraphs p {
           font-family: "Poppins", sans-serif;
           font-weight: 400;
-          font-size: 16px;
-          line-height: 1.75;
+          font-size: var(--t-base);
+          line-height: 1.6;
           color: #1A1A1A;
         }
         .sobre-paragraphs p + p { margin-top: 24px; }
         @media (min-width: 1024px) {
-          .sobre-section { padding: 120px 0; }
           .sobre-grid {
             flex-direction: row;
             align-items: center;
@@ -71,8 +65,6 @@ export function Sobre() {
           }
           .sobre-image-wrap { flex: 0 0 45%; }
           .sobre-text { flex: 0 0 50%; }
-          .sobre-h2 { font-size: 56px !important; }
-          .sobre-paragraphs p { font-size: 18px; }
         }
       `}</style>
     </section>

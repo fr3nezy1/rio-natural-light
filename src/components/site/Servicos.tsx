@@ -96,25 +96,15 @@ export function Servicos() {
         className="fade-section"
         style={{
           backgroundColor: "#FAF7F2",
-          paddingTop: "80px",
-          paddingBottom: "24px",
         }}
       >
-        <div
-          style={{
-            maxWidth: "1200px",
-            marginLeft: "auto",
-            marginRight: "auto",
-            paddingLeft: "24px",
-            paddingRight: "24px",
-          }}
-        >
+        <div className="cont-wide">
           <div style={{ marginBottom: "48px" }}>
             <p
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 500,
-                fontSize: "14px",
+                fontSize: "var(--t-xs)",
                 letterSpacing: "0.1em",
                 color: "#C8956D",
                 marginBottom: "16px",
@@ -126,7 +116,7 @@ export function Servicos() {
             <h2
               className="font-display"
               style={{
-                fontSize: "36px",
+                fontSize: "clamp(40px, 5vw, 56px)",
                 color: "#1A1A1A",
                 lineHeight: 1.1,
                 margin: 0,
@@ -187,7 +177,7 @@ export function Servicos() {
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 500,
-                    fontSize: "12px",
+                    fontSize: "var(--t-xs)",
                     letterSpacing: "0.15em",
                     color: "#A67C52",
                     marginTop: "24px",
@@ -200,7 +190,7 @@ export function Servicos() {
                 <h3
                   className="font-display"
                   style={{
-                    fontSize: "24px",
+                    fontSize: "var(--t-xl)",
                     color: "#1A1A1A",
                     lineHeight: 1.1,
                     margin: "0 0 16px 0",
@@ -212,7 +202,7 @@ export function Servicos() {
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
-                    fontSize: "15px",
+                    fontSize: "var(--t-base)",
                     color: "#1A1A1A",
                     lineHeight: 1.65,
                     marginBottom: "24px",
@@ -230,7 +220,7 @@ export function Servicos() {
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 500,
-                    fontSize: "14px",
+                    fontSize: "var(--t-sm)",
                     letterSpacing: "0.05em",
                     color: "#1A1A1A",
                     textDecoration: "none",
@@ -258,8 +248,7 @@ export function Servicos() {
         <style>{`
           .fade-section {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 600ms ease, transform 600ms ease;
+            transition: opacity 600ms ease;
           }
           .fade-section.is-visible {
             opacity: 1;
@@ -278,10 +267,10 @@ export function Servicos() {
               padding-bottom: 32px !important;
             }
             section#servicos h2 {
-              font-size: 56px !important;
+              font-size: var(--t-3xl) !important;
             }
             section#servicos h3 {
-              font-size: 28px !important;
+              font-size: var(--t-xl) !important;
             }
           }
 
@@ -379,7 +368,7 @@ export function Servicos() {
                 background: "none",
                 border: "none",
                 color: "#FAF7F2",
-                fontSize: "28px",
+                fontSize: "var(--t-xl)",
                 cursor: "pointer",
                 zIndex: 2,
                 fontFamily: "Anton, sans-serif",
@@ -414,7 +403,7 @@ export function Servicos() {
                 style={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 500,
-                  fontSize: "12px",
+                  fontSize: "var(--t-xs)",
                   letterSpacing: "0.15em",
                   color: "#C8956D",
                   marginBottom: "14px",
@@ -427,7 +416,7 @@ export function Servicos() {
                 id="modal-title"
                 className="font-display"
                 style={{
-                  fontSize: "38px",
+                  fontSize: "var(--t-2xl)",
                   lineHeight: 1.1,
                   color: "#FAF7F2",
                   marginBottom: "20px",
@@ -439,7 +428,7 @@ export function Servicos() {
                 style={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
-                  fontSize: "15px",
+                  fontSize: "var(--t-base)",
                   lineHeight: 1.6,
                   color: "#FAF7F2",
                   maxWidth: "440px",
@@ -452,7 +441,7 @@ export function Servicos() {
                 style={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 600,
-                  fontSize: "14px",
+                  fontSize: "var(--t-sm)",
                   letterSpacing: "0.15em",
                   color: "#FAF7F2",
                   marginBottom: "12px",
@@ -468,7 +457,7 @@ export function Servicos() {
                   marginBottom: "28px",
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
-                  fontSize: "14px",
+                  fontSize: "var(--t-sm)",
                   lineHeight: 1.7,
                   color: "#FAF7F2",
                 }}
@@ -488,7 +477,7 @@ export function Servicos() {
                   borderRadius: "2px",
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 500,
-                  fontSize: "14px",
+                  fontSize: "var(--t-sm)",
                   letterSpacing: "0.05em",
                   textDecoration: "none",
                   transition: "background 250ms ease, color 250ms ease",
@@ -519,9 +508,9 @@ export function Servicos() {
             }
 
             @media (max-width: 767px) {
-              .modal-panel h3 { font-size: 28px !important; }
-              .modal-panel p { font-size: 13px !important; }
-              .modal-panel ul { font-size: 12px !important; }
+              .modal-panel h3 { font-size: var(--t-xl) !important; }
+              .modal-panel p { font-size: var(--t-sm) !important; }
+              .modal-panel ul { font-size: var(--t-xs) !important; }
             }
           `}</style>
         </div>

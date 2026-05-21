@@ -24,9 +24,9 @@ export function Hero() {
           className="font-display hero-h1"
           style={{
             color: "#FAF7F2",
-            fontSize: "48px",
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
+            fontSize: "clamp(56px, 9vw, 96px)",
+            lineHeight: 0.95,
+            letterSpacing: "0.005em",
           }}
         >
           você sendo você.
@@ -39,7 +39,7 @@ export function Hero() {
             color: "rgba(250,247,242,0.9)",
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
-            fontSize: "14px",
+            fontSize: "var(--t-base)",
             lineHeight: 1.75,
             marginTop: "24px",
             maxWidth: "300px",
@@ -59,7 +59,7 @@ export function Hero() {
             borderRadius: "2px",
             fontFamily: "Poppins, sans-serif",
             fontWeight: 500,
-            fontSize: "14px",
+            fontSize: "var(--t-sm)",
             letterSpacing: "0.05em",
             backgroundColor: "transparent",
             transition: "background-color 250ms ease, color 250ms ease",
@@ -91,10 +91,9 @@ export function Hero() {
 
       <style>{`
         @media (min-width: 768px) {
-          .hero-h1 { font-size: 88px !important; }
-          .hero-sub { font-size: 20px !important; }
-          .hero-sub { max-width: 640px !important; }
-          section#top > div.absolute:not(:first-child):not(.scroll-indicator) {
+          section#top > div[style*="bottom: 40px"][style*="left: 24px"] {
+            bottom: 80px !important;
+            left: 80px !important;
           }
         }
         @media (min-width: 768px) {

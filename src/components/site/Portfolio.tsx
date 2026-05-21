@@ -197,156 +197,156 @@ export function Portfolio() {
       )
     : null;
 
-  return (
-    <section
-      id="portfolio"
-      ref={ref}
-      className="fade-section"
-      style={{
-        backgroundColor: "var(--color-cream)",
-        paddingTop: "80px",
-        paddingBottom: "80px",
-      }}
-    >
-      <div
-        className="portfolio-wrapper"
-        style={{
-          maxWidth: "1200px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingLeft: "24px",
-          paddingRight: "24px",
-        }}
-      >
-        <div style={{ marginBottom: "48px", textAlign: "center" }}>
-          <p
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
-              fontSize: "14px",
-              letterSpacing: "0.15em",
-              color: "var(--color-caramel)",
-              marginBottom: "16px",
-              textTransform: "uppercase",
-            }}
-          >
-            PORTFÓLIO
-          </p>
-          <h2
-            className="font-display"
-            style={{
-              fontSize: "40px",
-              color: "var(--color-ink)",
-              lineHeight: 1.1,
-              margin: 0,
-            }}
-          >
-            portfólio
-          </h2>
-        </div>
+    return (
+      <section id="portfolio" ref={ref} className="fade-section" aria-label="Portfólio">
+        {/* BLOCO 1 — Faixa cinematográfica full-bleed */}
+        <div className="cinematic">
+          {/* PLACEHOLDER - Pedro vai trocar essa imagem depois */}
+          <div className="cinematic-bg" role="img" aria-hidden="true" />
 
-        {/* Filters */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: "48px" }}>
-          <div style={{ display: "flex", gap: "24px" }}>
-            {(["retratos", "casais", "eventos"] as Category[]).map((cat) => {
-              const activeBtn = cat === active;
-              return (
-                <button
-                  key={cat}
-                  aria-pressed={activeBtn}
-                  onClick={() => handleFilter(cat)}
-                  style={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: activeBtn ? 600 : 500,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: activeBtn ? "var(--color-caramel)" : "rgba(26,26,26,0.6)",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 0,
-                    transition: "color 200ms ease",
-                    borderBottom: activeBtn ? "2px solid var(--color-caramel)" : "2px solid transparent",
-                    marginBottom: activeBtn ? "6px" : "0",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.color = "rgba(200,133,109,0.8)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.color = activeBtn ? "var(--color-caramel)" : "rgba(26,26,26,0.6)";
-                  }}
-                >
-                  {cat === "retratos" ? "Retratos" : cat === "casais" ? "Casais" : "Eventos"}
-                </button>
-              );
-            })}
+          <div className="cinematic-overlay" />
+
+          <div className="cinematic-content">
+            <div className="cinematic-inner">
+              <p className="pretitle">ALGUMAS FOTOS RECENTES</p>
+              <h1 className="cinematic-title">
+                <span className="line-cream">O PROCESSO TERMINA AQUI.</span>
+                <br />
+                <span className="line-caramel">O QUE FICA, MORA EMBAIXO.</span>
+              </h1>
+            </div>
           </div>
         </div>
 
-        {/* Grid */}
-        <div
-          style={{
-            opacity: isFading ? 0 : 1,
-            transition: "opacity 200ms ease",
-          }}
-        >
-          <div className="portfolio-grid">
-            {items.map((it, idx) => (
-              <div key={`${active}_${idx}_${animationKey}`} className="portfolio-item" onClick={() => openLightbox(idx)} style={{ animationDelay: `${idx * 120}ms` }}>
-                <img src={getThumbUrl(it.url)} alt={it.alt} loading="lazy" decoding="async" />
+        {/* BLOCO 2 — Conteúdo em fundo creme (mantém filtros e grid) */}
+        <div className="portfolio-content">
+          <div
+            className="portfolio-wrapper"
+            style={{
+              maxWidth: "1200px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              paddingLeft: "24px",
+              paddingRight: "24px",
+            }}
+          >
+            {/* Header line: left title + right filters (stack on mobile) */}
+            <div className="portfolio-header" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", marginBottom: "24px", flexWrap: "wrap" }}>
+              <div style={{ textAlign: "left" }}>
+                <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: "14px", letterSpacing: "0.15em", color: "var(--color-caramel)", marginBottom: "8px", textTransform: "uppercase" }}>PORTFÓLIO</p>
               </div>
-            ))}
+
+              <div style={{ display: "flex", gap: "24px" }}>
+                {(["retratos", "casais", "eventos"] as Category[]).map((cat) => {
+                  const activeBtn = cat === active;
+                  return (
+                    <button
+                      key={cat}
+                      aria-pressed={activeBtn}
+                      onClick={() => handleFilter(cat)}
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "14px",
+                        fontWeight: activeBtn ? 600 : 500,
+                        letterSpacing: "0.1em",
+                        textTransform: "uppercase",
+                        color: activeBtn ? "var(--color-caramel)" : "rgba(26,26,26,0.6)",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: 0,
+                        transition: "color 200ms ease",
+                        borderBottom: activeBtn ? "2px solid var(--color-caramel)" : "2px solid transparent",
+                        marginBottom: activeBtn ? "6px" : "0",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.color = "rgba(200,133,109,0.8)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLButtonElement).style.color = activeBtn ? "var(--color-caramel)" : "rgba(26,26,26,0.6)";
+                      }}
+                    >
+                      {cat === "retratos" ? "Retratos" : cat === "casais" ? "Casais" : "Eventos"}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div style={{ height: "1px", background: "rgba(200,133,109,0.12)", marginBottom: "24px" }} />
+
+            {/* Grid */}
+            <div
+              style={{
+                opacity: isFading ? 0 : 1,
+                transition: "opacity 200ms ease",
+              }}
+            >
+              <div className="portfolio-grid">
+                {items.map((it, idx) => (
+                  <div key={`${active}_${idx}_${animationKey}`} className="portfolio-item" onClick={() => openLightbox(idx)} style={{ animationDelay: `${idx * 120}ms` }}>
+                    <img src={getThumbUrl(it.url)} alt={it.alt} loading="lazy" decoding="async" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      {lightboxPortal}
 
-      <style>{`
-        .portfolio-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-        }
-        .portfolio-item {
-          aspect-ratio: 4/5;
-          overflow: hidden;
-          cursor: pointer;
-          opacity: 0;
-          animation: portfolioFadeIn 500ms ease-out forwards;
-        }
-        .portfolio-item img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: opacity 200ms ease;
-        }
+        {lightboxPortal}
 
-        @keyframes portfolioFadeIn {
-          from {
+        <style>{`
+          .cinematic { position: relative; width: 100%; height: 480px; overflow: hidden; }
+          .cinematic-bg { position: absolute; inset: 0; background-image: url('https://res.cloudinary.com/dsf09jmai/image/upload/q_auto/f_auto/Mureta-2'); background-size: cover; background-position: center; }
+          .cinematic-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+          .cinematic-content { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; }
+          .cinematic-inner { max-width: 1200px; padding-left: 80px; padding-right: 80px; }
+          .pretitle { font-family: Poppins, sans-serif; font-weight: 500; color: var(--color-caramel); font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 24px 0; }
+          .cinematic-title { font-family: Anton, sans-serif; font-weight: 400; margin: 0; line-height: 1.05; font-size: 56px; letter-spacing: -0.01em; }
+          .line-cream { color: var(--color-cream); }
+          .line-caramel { color: var(--color-caramel); }
+          .portfolio-content { background: var(--color-cream); padding-top: 80px; padding-bottom: 80px; }
+
+          .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          }
+          .portfolio-item {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            cursor: pointer;
             opacity: 0;
-            transform: translateY(8px);
+            animation: portfolioFadeIn 500ms ease-out forwards;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 200ms ease;
           }
-        }
 
-        @media (max-width: 768px) {
-          .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-          .portfolio-wrapper { padding-left: 56px; padding-right: 56px; }
-        }
-        @media (max-width: 480px) {
-          .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
-        }
+          @keyframes portfolioFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
 
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-      `}</style>
-    </section>
-  );
+          @media (max-width: 768px) {
+            .cinematic { height: 360px; }
+            .cinematic-inner { padding-left: 32px; padding-right: 32px; }
+            .cinematic-title { font-size: 36px; }
+            .pretitle { font-size: 12px; }
+            .portfolio-content { padding-top: 56px; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .portfolio-wrapper { padding-left: 56px; padding-right: 56px; }
+          }
+          @media (max-width: 480px) {
+            .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
+          }
+
+          @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        `}</style>
+      </section>
+    );
 }

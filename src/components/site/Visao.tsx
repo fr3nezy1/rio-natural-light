@@ -36,8 +36,8 @@ export function Visao() {
           className="fade-in font-display visao-text"
           style={{
             color: "#FAF7F2",
-            fontSize: "32px",
-            lineHeight: 1.3,
+            fontSize: "clamp(28px, 4vw, 40px)",
+            lineHeight: 1.15,
             textAlign: "center",
             marginLeft: "auto",
             marginRight: "auto",
@@ -59,7 +59,6 @@ export function Visao() {
         .visao-line { white-space: normal; }
         @media (min-width: 768px) {
           .visao-section { height: 85vh; }
-          .visao-text { font-size: 64px !important; }
           .visao-line { white-space: nowrap; }
         }
       `}</style>

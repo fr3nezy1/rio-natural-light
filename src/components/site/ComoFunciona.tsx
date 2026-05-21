@@ -49,26 +49,15 @@ export function ComoFunciona() {
       className="fade-section"
       style={{
         backgroundColor: "#FAF7F2",
-        paddingTop: "24px",
-        paddingBottom: "80px",
       }}
     >
-      <div
-        style={{
-          maxWidth: "1200px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingTop: "24px",
-          paddingLeft: "24px",
-          paddingRight: "24px",
-        }}
-      >
+      <div className="cont-wide">
         <div style={{ marginBottom: "48px" }}>
           <p
             style={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
-              fontSize: "14px",
+              fontSize: "var(--t-xs)",
               letterSpacing: "0.1em",
               color: "#C8956D",
               marginBottom: "16px",
@@ -80,7 +69,7 @@ export function ComoFunciona() {
           <h2
             className="font-display"
             style={{
-              fontSize: "36px",
+              fontSize: "clamp(40px, 5vw, 56px)",
               color: "#1A1A1A",
               lineHeight: 1.1,
               margin: "0 0 16px 0",
@@ -92,7 +81,7 @@ export function ComoFunciona() {
             style={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
-              fontSize: "18px",
+              fontSize: "var(--t-base)",
               color: "rgba(26,26,26,0.7)",
               margin: 0,
             }}
@@ -115,31 +104,11 @@ export function ComoFunciona() {
       <style>{`
         .fade-section {
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 600ms ease, transform 600ms ease;
+          transition: opacity 600ms ease;
         }
         .fade-section.is-visible {
           opacity: 1;
           transform: translateY(0);
-        }
-
-        @media (min-width: 768px) {
-          #como-funciona {
-            padding-top: 32px !important;
-          }
-          #como-funciona > div {
-            padding-top: 120px;
-            padding-bottom: 120px;
-          }
-          #como-funciona > div > div:first-child {
-            margin-bottom: 80px;
-          }
-          #como-funciona h2 {
-            font-size: 56px !important;
-          }
-          #como-funciona p:not([style*="fontWeight: 500"]):not([style*="color: rgba"]) {
-            font-size: 15px !important;
-          }
         }
 
         .passos-grid {
@@ -150,7 +119,7 @@ export function ComoFunciona() {
 
         .passo-numero {
           display: block;
-          font-size: 52px;
+          font-size: var(--t-3xl);
           color: #C8956D;
           line-height: 0.9;
           margin-bottom: 8px;
@@ -181,7 +150,7 @@ export function ComoFunciona() {
           }
 
           .passo-numero {
-            font-size: 64px;
+            font-size: var(--t-4xl);
           }
 
           .passo-titulo {

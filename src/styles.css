@@ -8,6 +8,28 @@
   --color-brown: #A67C52;
   --font-display: "Anton", sans-serif;
   --font-body: "Poppins", sans-serif;
+  --cont-text: 720px;
+  --cont-wide: 1120px;
+  --pad-x: clamp(24px, 5vw, 80px);
+  --t-xs: 13px;
+  --t-sm: 15px;
+  --t-base: 17px;
+  --t-lg: 21px;
+  --t-xl: 28px;
+  --t-2xl: 40px;
+  --t-3xl: 56px;
+  --t-4xl: 72px;
+  --t-5xl: 96px;
+  --t-6xl: 128px;
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 32px;
+  --s-5: 48px;
+  --s-6: 64px;
+  --s-7: 80px;
+  --s-8: 120px;
+  --s-9: 160px;
 }
 
 html {
@@ -33,9 +55,31 @@ body {
   text-transform: lowercase;
 }
 
+.cont-full {
+  width: 100%;
+  padding-inline: var(--pad-x);
+}
+.cont-wide {
+  max-width: var(--cont-wide);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+.cont-text {
+  max-width: var(--cont-text);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+section + section {
+  margin-top: var(--s-9);
+}
+section.section-compact + section {
+  margin-top: var(--s-8);
+}
+
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .fade-in {
@@ -43,7 +87,7 @@ body {
 }
 
 .fade-in.is-visible {
-  animation: fadeUp 700ms ease-out forwards;
+  animation: fadeUp 400ms ease-out forwards;
 }
 
 @keyframes scrollPulse {

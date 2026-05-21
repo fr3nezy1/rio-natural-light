@@ -29,7 +29,7 @@ const services = [
     tag: "CUMPLICIDADE · TOQUE · AFETO",
     title: "casais",
     description:
-      "Vocês juntos, no início da manhã, em um lugar do Rio que faça sentido pra história de vocês.",
+      "Vocês juntos, no início da manhã, em um lugar do Rio que faça sentido pra história do casal.",
     fullDescription:
       "Um momento real entre vocês em um lugar do Rio escolhido com cuidado pra dialogar com a história do casal. Durante uma hora e meia, fico atento às interações de vocês, pra registrar o sentimento que envolve a relação. Prefiro trabalhar no início da manhã, quando a luz do Rio é mais bonita pra esse tipo de sessão. As fotos ajudam a reviver esse momento sempre que quiserem.",
     includes: [

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useFadeIn } from "@/hooks/use-fade-in";
 
 const portfolio = {
@@ -85,6 +86,117 @@ export function Portfolio() {
   const goPrev = () => setLightboxIndex((i) => (i - 1 + items.length) % items.length);
   const goNext = () => setLightboxIndex((i) => (i + 1) % items.length);
 
+  const lightboxPortal = lightboxOpen
+    ? createPortal(
+        <div
+          ref={backdropRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Visualização ampliada da foto"
+          onClick={(e) => {
+            if (e.target === backdropRef.current) closeLightbox();
+          }}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0, 0, 0, 0.92)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+            animation: "fadeIn 250ms ease",
+          }}
+        >
+          <button
+            onClick={closeLightbox}
+            aria-label="Fechar"
+            style={{
+              position: "fixed",
+              top: "24px",
+              right: "24px",
+              zIndex: 10000,
+              fontSize: "32px",
+              color: "var(--color-cream)",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            ×
+          </button>
+
+          <button
+            onClick={goPrev}
+            aria-label="Foto anterior"
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "24px",
+              transform: "translateY(-50%)",
+              zIndex: 10000,
+              fontSize: "40px",
+              color: "var(--color-cream)",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: "16px",
+            }}
+          >
+            ‹
+          </button>
+
+          <button
+            onClick={goNext}
+            aria-label="Próxima foto"
+            style={{
+              position: "fixed",
+              top: "50%",
+              right: "24px",
+              transform: "translateY(-50%)",
+              zIndex: 10000,
+              fontSize: "40px",
+              color: "var(--color-cream)",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: "16px",
+            }}
+          >
+            ›
+          </button>
+
+          <div
+            style={{
+              maxWidth: "90vw",
+              maxHeight: "85vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 10000,
+            }}
+          >
+            <img
+              src={getFullUrl(items[lightboxIndex].url)}
+              alt={items[lightboxIndex].alt}
+              style={{
+                maxWidth: "90vw",
+                maxHeight: "85vh",
+                objectFit: "contain",
+                display: "block",
+                margin: "auto",
+              }}
+            />
+          </div>
+        </div>,
+        document.body,
+      )
+    : null;
+
   return (
     <section
       id="portfolio"
@@ -97,8 +209,9 @@ export function Portfolio() {
       }}
     >
       <div
+        className="portfolio-wrapper"
         style={{
-          maxWidth: "1280px",
+          maxWidth: "1200px",
           marginLeft: "auto",
           marginRight: "auto",
           paddingLeft: "24px",
@@ -187,107 +300,13 @@ export function Portfolio() {
           </div>
         </div>
       </div>
-
-      {/* Lightbox */}
-      {lightboxOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Visualização ampliada da foto"
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 200,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            ref={backdropRef}
-            onClick={(e) => {
-              if (e.target === backdropRef.current) closeLightbox();
-            }}
-            style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.9)", animation: "fadeIn 250ms ease" }}
-          />
-
-          <button
-            onClick={closeLightbox}
-            aria-label="Fechar"
-            style={{
-              position: "fixed",
-              top: "24px",
-              right: "24px",
-              background: "none",
-              border: "none",
-              color: "#FAF7F2",
-              fontSize: "28px",
-              cursor: "pointer",
-              zIndex: 210,
-            }}
-          >
-            ×
-          </button>
-
-          <button
-            onClick={goPrev}
-            aria-label="Foto anterior"
-            style={{
-              position: "fixed",
-              left: "24px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              color: "#FAF7F2",
-              fontSize: "40px",
-              cursor: "pointer",
-              zIndex: 210,
-            }}
-          >
-            ‹
-          </button>
-
-          <button
-            onClick={goNext}
-            aria-label="Próxima foto"
-            style={{
-              position: "fixed",
-              right: "24px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              color: "#FAF7F2",
-              fontSize: "40px",
-              cursor: "pointer",
-              zIndex: 210,
-            }}
-          >
-            ›
-          </button>
-
-          <div
-            style={{
-              position: "relative",
-              zIndex: 205,
-              maxWidth: "90vw",
-              maxHeight: "85vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img src={getFullUrl(items[lightboxIndex].url)} alt={items[lightboxIndex].alt} style={{ maxWidth: "90vw", maxHeight: "85vh", objectFit: "contain" }} />
-          </div>
-        </div>
-      )}
+      {lightboxPortal}
 
       <style>{`
         .portfolio-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
+          gap: 24px;
         }
         .portfolio-item {
           aspect-ratio: 4/5;
@@ -316,10 +335,11 @@ export function Portfolio() {
         }
 
         @media (max-width: 768px) {
-          .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+          .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+          .portfolio-wrapper { padding-left: 56px; padding-right: 56px; }
         }
         @media (max-width: 480px) {
-          .portfolio-grid { grid-template-columns: 1fr; gap: 24px; }
+          .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
         }
 
         @keyframes fadeIn {
